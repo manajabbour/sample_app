@@ -14,3 +14,10 @@ require 'rubygems'
 require 'bundler/setup'
 
 load Gem.bin_path('ZenTest', 'autotest')
+
+Autotest.add_hook :initialize do |autotest|
+  autotest.add_mapping(/^spec\/requests\/.*_spec\.rb$/) do
+    autotest.files_matching(/^spec\/requests\/.*_spec\.rb$/)
+  end  
+end
+
